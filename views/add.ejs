@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Inventory</title>
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <h1>Add New Inventory</h1>
+    <section>
+      <strong>Find a Card</strong>
+      <p>Search for a card to retreive its details.</p>
+      <form>
+        <label for="search-name">Card Name: </label>
+        <input type="text" id="search-name" name="searchName" required />
+
+        <label for="search-game">Game: </label>
+        <select required>
+          <option value="" selected hidden default></option>
+          <option value="lorcana">Lorcana</option>
+          <option value="pokemon">Pokemon</option>
+          <option value="magic">Magic the Gathering</option>
+        </select>
+
+        <button type="submit">Search</button>
+      </form>
+    </section>
+  </body>
+</html>
