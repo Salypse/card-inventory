@@ -11,12 +11,12 @@
     <section>
       <strong>Find a Card</strong>
       <p>Search for a card to retreive its details.</p>
-      <form>
+      <form method="GET">
         <label for="search-name">Card Name: </label>
         <input type="text" id="search-name" name="searchName" required />
 
         <label for="search-game">Game: </label>
-        <select required>
+        <select id="search-game" name="searchGame" required>
           <option value="" selected hidden default></option>
           <option value="lorcana">Lorcana</option>
           <option value="pokemon">Pokemon</option>
