@@ -25,11 +25,7 @@
 
         <button type="submit">Search</button>
 
-        <% if (locals.cards) { %>
-          <%- include("partials/cardDataTable") %>
-        <%} else if (locals.error) {%>
-          <%- include("partials/searchError") %>
-        <% } %>
+        <%- include("partials/cardDataTable") %>
       </form>
     </section>
   </body>
