@@ -2,13 +2,19 @@ const cardsService = require("../services/cardService");
 
 async function addGet(req, res, next) {
   const { searchName, searchGame } = req.query;
-  let cards = [];
 
   if (searchName && searchGame) {
-    cards = await cardsService.searchCards(searchName, searchGame);
+    const result = await cardsService.searchCards(searchName, searchGame);
+
+    //Check if error occured during api call
+    if (result.success) {
+      return res.render("add", { cards: result.cards, error: null });
+    } else if (!result.success) {
+      return res.render("add", { cards: null, error: result.error });
+    }
   }
 
-  res.render("add", { cards });
+  res.render("add", { cards: null, error: null });
 }
 
 module.exports = {

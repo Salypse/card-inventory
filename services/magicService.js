@@ -5,6 +5,20 @@ async function searchCards(name) {
     );
     const result = await response.json();
 
+    if (!response.ok || result.object === "error") {
+      //Avoid magic throwing error for no cards found
+      if (result.code === "not_found") {
+        return {
+          success: true,
+          cards: [],
+        };
+      }
+      return {
+        success: false,
+        error: `Error ${result.status}: ${result.details}`,
+      };
+    }
+
     //Format each card to universal key names
     let cards = [];
     for (const card of result.data) {
@@ -34,8 +48,18 @@ async function searchCards(name) {
         });
       }
     }
+
+    return {
+      success: true,
+      cards: cards,
+    };
   } catch (error) {
-    console.error(error.message);
+    console.error(`Magic API Failed: ${error}`);
+
+    return {
+      success: false,
+      error: "Error: Unable to contact card database.",
+    };
   }
 }
 

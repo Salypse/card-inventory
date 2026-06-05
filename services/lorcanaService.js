@@ -1,9 +1,16 @@
 async function searchCards(name) {
   try {
     const response = await fetch(
-      `https://api.lorcana-api.com/cards/fetch?search%3Dname~${name}`,
+      `https://api.lorcana-api.com/cards/fetch?search=name~${name}`,
     );
     const result = await response.json();
+
+    if (!response.ok || result.object === "error") {
+      return {
+        success: false,
+        error: `Error ${result.status}: ${result.details}`,
+      };
+    }
 
     //Format each card to universal key names
     let cards = [];
@@ -19,9 +26,18 @@ async function searchCards(name) {
         image: card.Image,
       });
     }
-    return cards;
+
+    return {
+      success: true,
+      cards: cards,
+    };
   } catch (error) {
-    console.error(error.message);
+    console.error(`Lorcana API Failed: ${error}`);
+
+    return {
+      success: false,
+      error: "Error: Unable to contact card database.",
+    };
   }
 }
 
