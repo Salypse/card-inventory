@@ -31,7 +31,7 @@ async function searchCards(name) {
           set: card.set_name,
           type: multifacedCardFront.type_line,
           element: multifacedCardFront.colors,
-          rarity: card.rarity,
+          rarity: capitalizeRarity(card.rarity),
           num: card.collector_number,
           image: multifacedCardFront.image_uris.normal,
         });
@@ -42,7 +42,7 @@ async function searchCards(name) {
           set: card.set_name,
           type: card.type_line,
           element: card.colors,
-          rarity: card.rarity,
+          rarity: capitalizeRarity(card.rarity),
           num: card.collector_number,
           image: card.image_uris.normal,
         });
@@ -61,6 +61,10 @@ async function searchCards(name) {
       error: "Error: Unable to contact card database.",
     };
   }
+}
+
+function capitalizeRarity(str) {
+  return str[0].toUpperCase() + str.slice(1);
 }
 
 module.exports = { searchCards };
