@@ -1,7 +1,7 @@
 async function searchCards(name) {
   try {
     const response = await fetch(
-      `https://api.pokemontcg.io/v2/cards?q=name:${name}`,
+      `https://api.pokemontcg.io/v2/cards?q=name:"${name}"`,
     );
     const result = await response.json();
 
