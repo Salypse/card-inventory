@@ -1,29 +1,30 @@
 async function searchCards(name) {
   try {
     const response = await fetch(
-      `https://api.lorcana-api.com/cards/fetch?search=name~${name}`,
+      `https://api.lorcast.com/v0/cards/search?q=${name}`,
     );
     const result = await response.json();
 
-    if (!response.ok || result.object === "error") {
+    if (!response.ok || result.error) {
       return {
         success: false,
-        error: `Error ${result.status}: ${result.details}`,
+        error: `Error: ${result.error}`,
       };
     }
 
     //Format each card to universal key names
     let cards = [];
-    for (const card of result) {
+    for (const card of result.results) {
       cards.push({
-        name: card.Name,
+        name: `${card.name}${card.version ? ` ${card.version}` : ""}`,
         game: "lorcana",
-        set: card.Set_Name,
-        type: card.Type,
-        element: card.Color,
-        rarity: card.Rarity,
-        num: card.Card_Num,
-        image: card.Image,
+        set: card.set.name,
+        type: card.type[0],
+        element: card.inks,
+        rarity: card.rarity,
+        num: card.collector_number,
+        image: card.image_uris.digital.normal,
+        card_id: card.id,
       });
     }
 
