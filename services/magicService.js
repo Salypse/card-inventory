@@ -33,7 +33,7 @@ async function searchCards(name) {
           element: multifacedCardFront.colors,
           rarity: capitalizeRarity(card.rarity),
           num: card.collector_number,
-          image: multifacedCardFront.image_uris.normal,
+          image: multifacedCardFront.image_uris !== undefined ? multifacedCardFront.image_uris.normal : card.image_uris.normal,
         });
       } else {
         cards.push({
