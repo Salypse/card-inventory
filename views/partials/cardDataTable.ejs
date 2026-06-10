@@ -15,6 +15,7 @@
         <th>Element(s)</th>
         <th>Rarity</th>
         <th>Number</th>
+        <th>Add</th>
       </tr>
       <% cards.forEach(card => { %>
         <tr>
@@ -25,6 +26,14 @@
           <td><%= card.element %></td>
           <td><%= card.rarity %></td>
           <td><%= card.num %></td>
+          <td>
+            <form action="/add/form" method="POST">
+              <input type="hidden" name="name" value="<%= card.name %>">
+              <input type="hidden" name="game" value="<%= card.game %>">
+              <input type="hidden" name="image" value="<%= card.image %>">
+              <button type="submit">Add To Inventory</button>
+            </form>>
+          </td>
         </tr>
       <% }) %>
     </table>

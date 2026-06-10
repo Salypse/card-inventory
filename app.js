@@ -6,6 +6,7 @@ const app = express();
 
 const indexRouter = require("./routes/indexRouter");
 const addRouter = require("./routes/addRouter");
+const inventoryRouter = require("./routes/inventoryRouter");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/", indexRouter);
 app.use("/add", addRouter);
+app.use("/inventory", inventoryRouter)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {

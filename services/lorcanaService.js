@@ -24,7 +24,6 @@ async function searchCards(name) {
         rarity: card.rarity,
         num: card.collector_number,
         image: card.image_uris.digital.normal,
-        card_id: card.id,
       });
     }
 

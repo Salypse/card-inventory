@@ -17,6 +17,12 @@ async function addGet(req, res, next) {
   res.render("add", { cards: null, error: null });
 }
 
+function addInventoryFormGet(req, res, next) {
+  const card = req.body;
+  res.render("addInventoryForm", { card: card });
+}
+
 module.exports = {
   addGet,
+  addInventoryFormGet,
 };

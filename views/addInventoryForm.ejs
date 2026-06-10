@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Iventory Form</title>
+  </head>
+  <body>
+    <%- include("partials/navbar") %>
+    <h1>Add Card To Inventory</h1>
+    <section>
+      <img src="<%= card.image%>" />
+      <form action="/inventory" method="POST">
+        <input type="hidden" name="image" value="<%= card.image %>" />
+
+        <label for="cardName">Name: </label>
+        <input
+          name="cardName"
+          id="card-name"
+          value="<%= card.name %>"
+          readonly
+          required
+        />
+
+        <label for="cardGame">Game: </label>
+        <input
+          name="cardGame"
+          id="card-game"
+          value="<%= card.game %>"
+          readonly
+          required
+        />
+
+        <label for="condition">Condition:</label>
+        <select name="condition" id="condition" required>
+          <option value="" disabled selected hidden></option>
+          <option value="Mint">Mint</option>
+          <option value="Near Mint">Near Mint</option>
+          <option value="Lightly Played">Lightly Played</option>
+          <option value="Moderately Played">Moderately Played</option>
+          <option value="Heavily Played">Heavily Played</option>
+          <option value="Damaged">Damaged</option>
+        </select>
+
+        <label for="isFoil">Foil: </label>
+        <input type="checkbox" name="isFoil" id="is-foil" />
+
+        <label for="quantity">Quantity: </label>
+        <input type="number" name="quantity" id="quantity" required/>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </body>
+</html>
