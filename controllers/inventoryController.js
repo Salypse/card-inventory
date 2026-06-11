@@ -7,11 +7,11 @@ async function inventoryPageGet(req, res, next) {
 async function inventoryPost(req,res,next){
     const data = req.body
     await db.insertNewInventory(data)
-    res.redirect("/inventory")
+    res.redirect("/")
 }
 
 async function inventorySearch(req,res,next) {
-    const { cardName} = req.query
+    const { cardName } = req.query
     const cards = await db.searchInventory(cardName)
     res.render("inventory", {cards: cards})
 }
