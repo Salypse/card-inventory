@@ -6,4 +6,9 @@ async function insertNewInventory(data) {
         [data.cardName, data.cardGame, data.image, data.condition, data.isFoil !== undefined ? true : false, data.quantity ])
 }
 
-module.exports = { insertNewInventory }
+async function searchInventory(name) {
+    const result =  await pool.query("SELECT * FROM inventory WHERE name ILIKE $1", [`%${name}%`])
+    return result.rows
+}
+
+module.exports = { insertNewInventory, searchInventory }
