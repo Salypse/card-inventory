@@ -11,4 +11,8 @@ async function searchInventory(name) {
     return result.rows
 }
 
-module.exports = { insertNewInventory, searchInventory }
+async function deleteInventory(id) {
+    await pool.query("DELETE FROM inventory WHERE id = $1",  [id])
+}
+
+module.exports = { insertNewInventory, searchInventory, deleteInventory }

@@ -9,6 +9,7 @@
                 <th>Condition</th>
                 <th>Foil</th>
                 <th>Quantity</th>
+                <th>Options</th>
             </tr>
             <% cards.forEach(card => { %>
                 <tr>
@@ -18,6 +19,11 @@
                     <td><%= card.condition %></td>
                     <td><%= card.is_foil === true ? "Yes" : "No" %></td>
                     <td><%= card.quantity %></td>
+                    <td>
+                        <form action="/<%= card.id %>/delete" method="GET">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             <% }) %>
         </table>

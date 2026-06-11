@@ -16,4 +16,10 @@ async function inventorySearch(req,res,next) {
     res.render("inventory", {cards: cards})
 }
 
-module.exports = { inventoryPageGet, inventoryPost, inventorySearch }
+async function deleteInventory(req, res, next) {   
+    const { id } = req.params
+    await db.deleteInventory(id)
+    res.redirect("/")
+}
+
+module.exports = { inventoryPageGet, inventoryPost, inventorySearch, deleteInventory }

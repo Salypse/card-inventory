@@ -7,4 +7,7 @@ inventoryRouter.post("/", inventoryController.inventoryPost)
 
 inventoryRouter.get("/search", inventoryController.inventorySearch)
 
+inventoryRouter.get("/:id/delete", inventoryController.deleteInventory)
+
+
 module.exports = inventoryRouter
