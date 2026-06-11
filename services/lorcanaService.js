@@ -17,11 +17,11 @@ async function searchCards(name) {
     for (const card of result.results) {
       cards.push({
         name: `${card.name}${card.version ? ` ${card.version}` : ""}`,
-        game: "lorcana",
+        game: "Lorcana",
         set: card.set.name,
         type: card.type[0],
         element: card.inks,
-        rarity: card.rarity,
+        rarity: card.rarity.split("_").join(" "),
         num: card.collector_number,
         image: card.image_uris.digital.normal,
       });

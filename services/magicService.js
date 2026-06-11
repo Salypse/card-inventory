@@ -27,7 +27,7 @@ async function searchCards(name) {
         const multifacedCardFront = card.card_faces[0];
         cards.push({
           name: multifacedCardFront.name,
-          game: "magic",
+          game: "Magic",
           set: card.set_name,
           type: multifacedCardFront.type_line,
           element: multifacedCardFront.colors,
@@ -38,7 +38,7 @@ async function searchCards(name) {
       } else {
         cards.push({
           name: card.name,
-          game: "magic",
+          game: "Magic",
           set: card.set_name,
           type: card.type_line,
           element: card.colors,

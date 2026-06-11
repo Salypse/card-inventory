@@ -17,7 +17,7 @@ async function searchCards(name) {
     for (const card of result.data) {
       cards.push({
         name: card.name,
-        game: "pokemon",
+        game: "Pokemon",
         set: card.set.name,
         type: card.supertype,
         element: card.types || "",
