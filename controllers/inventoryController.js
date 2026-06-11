@@ -13,7 +13,7 @@ async function inventoryPost(req,res,next){
 async function inventorySearch(req,res,next) {
     const { cardName} = req.query
     const cards = await db.searchInventory(cardName)
-    res.redirect("/inventory")
+    res.render("inventory", {cards: cards})
 }
 
 module.exports = { inventoryPageGet, inventoryPost, inventorySearch }

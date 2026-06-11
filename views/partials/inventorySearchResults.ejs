@@ -1,0 +1,31 @@
+<section>
+    <% if (locals.cards.length >= 1) { %>
+        <h2>Search Results</h2>
+        <table id="iventory-search-results">
+            <tr>
+                <th>Card Preview</th>
+                <th>Name</th>
+                <th>Game</th>
+                <th>Condition</th>
+                <th>Foil</th>
+                <th>Quantity</th>
+            </tr>
+            <% cards.forEach(card => { %>
+                <tr>
+                    <td><img src=<%= card.image %>></td>
+                    <td><%= card.name %></td>
+                    <td><%= card.game %></td>
+                    <td><%= card.card_condition %></td>
+                    <td><%= card.is_foil === true ? "Yes" : "No" %></td>
+                    <td><%= card.quantity %></td>
+                </tr>
+            <% }) %>
+        </table>
+    <% } else {%>
+        <strong>No Cards Found</strong>
+    <% } %>
+    <div>
+        <strong>Can't find your card?</strong>
+        <a href="/add">Add New Card to Inventory</a>
+    </div>
+</section>

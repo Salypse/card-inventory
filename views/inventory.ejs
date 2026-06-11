@@ -17,5 +17,8 @@
             <button type="submit">Search</button>
         </form>
     </section>
+    <% if (locals.cards) {%>
+        <%- include("partials/inventorySearchResults") %>
+    <% } %>
 </body>
 </html>
