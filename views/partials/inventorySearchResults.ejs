@@ -20,6 +20,9 @@
                     <td><%= card.is_foil === true ? "Yes" : "No" %></td>
                     <td><%= card.quantity %></td>
                     <td>
+                        <form action="/<%= card.id %>/edit" method="GET">
+                            <button type="submit">Edit</button>
+                        </form>
                         <form action="/<%= card.id %>/delete" method="GET">
                             <button type="submit">Delete</button>
                         </form>

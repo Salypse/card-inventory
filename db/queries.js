@@ -11,8 +11,20 @@ async function searchInventory(name) {
     return result.rows
 }
 
+async function getSingleCard(id) {
+    const result = await pool.query("SELECT * FROM inventory WHERE id = $1", [id])
+    return result.rows[0]
+}
+
 async function deleteInventory(id) {
     await pool.query("DELETE FROM inventory WHERE id = $1",  [id])
 }
 
-module.exports = { insertNewInventory, searchInventory, deleteInventory }
+async function editCard(data) {
+    //Not getting id on post request
+    await pool.query(
+        "UPDATE inventory SET name = $1, game = $2, image = $3, condition = $4, is_foil = $5, quantity = $6 WHERE id = $7",
+        [data.cardName, data.cardGame, data.image, data.condition, data.isFoil !== undefined ? true : false, data.quantity, data.id])
+}
+
+module.exports = { insertNewInventory, searchInventory, deleteInventory, getSingleCard, editCard }

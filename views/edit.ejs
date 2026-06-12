@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+</head>
+<body>
+    <%- include("partials/navbar") %>
+    <h1>Edit Card Details</h1>
+    <section>
+        <img src="<%= card.image %>">
+        <form action="/<%= card.id %>/edit" method="POST" >
+            <input type="hidden" name="image" value="<%= card.image %>" />
+            <input type="hidden" name="id" value="<%= card.id %>" />
+
+            <label for="cardName">Name: </label>
+            <input
+            name="cardName"
+            id="card-name"
+            value="<%= card.name %>"
+            readonly
+            required
+            />
+
+            <label for="cardGame">Game: </label>
+            <input
+            name="cardGame"
+            id="card-game"
+            value="<%= card.game %>"
+            readonly
+            required
+            />
+
+            <label for="condition">Condition:</label>
+            <select name="condition" id="condition" required>
+                <option value="" disabled selected hidden></option>
+                <option value="Mint" <%= card.condition === "Mint" ? "selected": "" %>>Mint</option>
+                <option value="Near Mint" <%= card.condition === "Near Mint" ? "selected" : "" %>>Near Mint</option>
+                <option value="Lightly Played" <%= card.condition === "Lightly Played" ? "selected" : "" %>>Lightly Played</option>
+                <option value="Moderately Played" <%= card.condition === "Moderately Played" ? "selected" : "" %>>Moderately Played</option>
+                <option value="Heavily Played" <%= card.condition === "Heavily Played" ? "selected" : "" %>>Heavily Played</option>
+                <option value="Damaged" <%= card.condition === "Damaged" ? "selected" : "" %>>Damaged</option>
+            </select>
+
+            <label for="isFoil">Foil: </label>
+            <input type="checkbox" name="isFoil" id="is-foil" <%= card.is_foil ? "checked" : "" %>>
+
+            <label for="quantity">Quantity: </label>
+            <input type="number" name="quantity" id="quantity" value="<%= card.quantity %>" required/>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</body>
+</html>

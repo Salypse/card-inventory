@@ -9,5 +9,8 @@ inventoryRouter.get("/search", inventoryController.inventorySearch)
 
 inventoryRouter.get("/:id/delete", inventoryController.deleteInventory)
 
+inventoryRouter.get("/:id/edit", inventoryController.editPageGet)
+inventoryRouter.post("/:id/edit", inventoryController.editCardPost)
+
 
 module.exports = inventoryRouter

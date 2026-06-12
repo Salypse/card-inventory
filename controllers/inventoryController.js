@@ -22,4 +22,16 @@ async function deleteInventory(req, res, next) {
     res.redirect("/")
 }
 
-module.exports = { inventoryPageGet, inventoryPost, inventorySearch, deleteInventory }
+async function editPageGet(req,res,next) {
+    const { id } = req.params
+    const card = await db.getSingleCard(id)
+    res.render("edit", { card: card})
+}
+
+async function editCardPost(req,res,next) {
+    const data = req.body
+    await db.editCard(data)
+    res.redirect("/")
+}
+
+module.exports = { inventoryPageGet, inventoryPost, inventorySearch, deleteInventory, editPageGet, editCardPost }
