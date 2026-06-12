@@ -1,19 +1,22 @@
 const db = require("../db/queries")
 
 async function inventoryPageGet(req, res, next) {
-    res.render("inventory")
+    let cards = []
+    const { searchName } = req.query
+
+    if (searchName) {
+        cards = await db.searchInventory(searchName)
+    } else {
+        cards = await db.getAllCards()
+    }
+
+    res.render("inventory", { cards: cards})
 }
 
 async function inventoryPost(req,res,next){
     const data = req.body
     await db.insertNewInventory(data)
     res.redirect("/")
-}
-
-async function inventorySearch(req,res,next) {
-    const { cardName } = req.query
-    const cards = await db.searchInventory(cardName)
-    res.render("inventory", {cards: cards})
 }
 
 async function deleteInventory(req, res, next) {   
@@ -34,4 +37,4 @@ async function editCardPost(req,res,next) {
     res.redirect("/")
 }
 
-module.exports = { inventoryPageGet, inventoryPost, inventorySearch, deleteInventory, editPageGet, editCardPost }
+module.exports = { inventoryPageGet, inventoryPost, deleteInventory, editPageGet, editCardPost }
