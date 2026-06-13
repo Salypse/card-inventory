@@ -1,0 +1,32 @@
+<aside>
+    <form action="/" method="GET">
+        <input type="hidden" name="searchName" value="<%- filter.searchName %>">
+
+        <fieldset>
+            <legend>Game</legend>
+            
+            <label>
+                <input type="radio" name="game" value="" <%= !filter.game ? "checked" : "" %>> 
+                All Games
+            </label>
+
+            <label>
+                <input type="radio" name="game" value="Lorcana" <%= filter.game === "Lorcana" ? "checked" : "" %>>
+                Lorcana
+            </label>
+
+            <label>
+                <input type="radio" name="game" value="Pokemon" <%= filter.game === "Pokemon" ? "checked" : "" %>>
+                Pokemon
+            </label>
+
+            <label>
+                <input type="radio" name="game" value="Magic" <%= filter.game === "Magic" ? "checked" : "" %>>
+                Magic
+            </label>
+        </fieldset>
+
+        <button type="submit">Apply Filter</button>
+    </form>
+    
+</aside>

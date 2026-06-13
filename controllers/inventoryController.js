@@ -1,16 +1,30 @@
 const db = require("../db/queries")
 
 async function inventoryPageGet(req, res, next) {
-    let cards = []
-    const { searchName } = req.query
+    let sqlQuery = "SELECT * FROM inventory "
+    const whereConditions = []
+    const params = []
 
-    if (searchName) {
-        cards = await db.searchInventory(searchName)
-    } else {
-        cards = await db.getAllCards()
+    const filter = req.query
+    
+    //Check if any conditions are added
+    if (filter.searchName) {
+        params.push(`%${filter.searchName}%`)
+        whereConditions.push(`name ILIKE $${params.length}`)
     }
 
-    res.render("inventory", { cards: cards})
+    if (filter.game) {
+        params.push(`%${filter.game}%`)
+        whereConditions.push(`game ILIKE $${params.length}`)
+    }
+
+    //Add conditions to sqlQuery
+    if (whereConditions.length >= 1) {
+        sqlQuery += "WHERE " + whereConditions.join(" AND ")
+    }
+
+    const cards = await db.searchInventory(sqlQuery, params)
+    res.render("inventory", { cards: cards, filter: filter})
 }
 
 async function inventoryPost(req,res,next){

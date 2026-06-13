@@ -6,8 +6,8 @@ async function insertNewInventory(data) {
         [data.cardName, data.cardGame, data.image, data.condition, data.isFoil !== undefined ? true : false, data.quantity ])
 }
 
-async function searchInventory(name) {
-    const result =  await pool.query("SELECT * FROM inventory WHERE name ILIKE $1", [`%${name}%`])
+async function searchInventory(query, params) {
+    const result =  await pool.query(query, params)
     return result.rows
 }
 
@@ -16,10 +16,6 @@ async function getSingleCard(id) {
     return result.rows[0]
 }
 
-async function getAllCards() {
-    const result = await pool.query("SELECT * FROM inventory")
-    return result.rows
-}
 
 
 async function deleteInventory(id) {
@@ -37,5 +33,4 @@ module.exports = {
     searchInventory, 
     deleteInventory,
     getSingleCard,
-    getAllCards,
     editCard }
