@@ -1,30 +1,24 @@
 const db = require("../db/queries")
+const { createSqlQuery } = require("../public/utils/createSqlQuery")
 
 async function inventoryPageGet(req, res, next) {
-    let sqlQuery = "SELECT * FROM inventory "
-    const whereConditions = []
-    const params = []
+    const {sqlQuery, values} = createSqlQuery(req.query)
 
-    const filter = req.query
-    
-    //Check if any conditions are added
-    if (filter.searchName) {
-        params.push(`%${filter.searchName}%`)
-        whereConditions.push(`name ILIKE $${params.length}`)
-    }
-
-    if (filter.game) {
-        params.push(`%${filter.game}%`)
-        whereConditions.push(`game ILIKE $${params.length}`)
-    }
-
-    //Add conditions to sqlQuery
-    if (whereConditions.length >= 1) {
-        sqlQuery += "WHERE " + whereConditions.join(" AND ")
-    }
-
-    const cards = await db.searchInventory(sqlQuery, params)
-    res.render("inventory", { cards: cards, filter: filter})
+    const cards = await db.searchInventory(sqlQuery, values)
+    res.render("inventory", { 
+        cards: cards, 
+        filter: req.query, 
+        inputFields: inputFields = {
+            games: ["Pokemon", "Lorcana", "Magic"],
+            conditions: ["Mint", "Near Mint", "Lightly Played", "Moderatly Played", "Heavily Played", "Damaged"],
+            sortOptions: [
+                {value: "nameAsc", text: "Name (A-Z)"},
+                {value: "nameDesc", text: "Name (Z-A)"},
+                {value: "quantityAsc", text: "Quantity (Low-High)"},
+                {value: "quantityDesc", text: "Quantity (High-Low)"}
+            ]
+        }
+    })
 }
 
 async function inventoryPost(req,res,next){

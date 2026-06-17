@@ -10,23 +10,61 @@
                 All Games
             </label>
 
-            <label>
-                <input type="radio" name="game" value="Lorcana" <%= filter.game === "Lorcana" ? "checked" : "" %>>
-                Lorcana
-            </label>
+            <% inputFields.games.forEach((game) => { %>
+                <label>
+                    <input type="radio" name="game" value="<%= game %>" <%= filter.game === game ? "checked" : ""%>>
+                    <%= (game) %>
+                </label>
+            <% }) %>
+        </fieldset>
+
+        <fieldset>
+            <legend>Condition</legend>
 
             <label>
-                <input type="radio" name="game" value="Pokemon" <%= filter.game === "Pokemon" ? "checked" : "" %>>
-                Pokemon
+                <input type="radio" name="condition" value="" <%= !filter.condition ? "checked" : "" %>>
+                All Conditions
             </label>
 
+            <% inputFields.conditions.forEach((condition) => { %>
+                <label>
+                    <input type="radio" name="condition" value="<%= condition %>" <%= filter.condition === condition ? "checked" : ""%>>
+                    <%= condition %>
+                </label>
+            <% }) %>
+        </fieldset>
+
+        <label>
+            <input type="checkbox" name="foil" <%= filter.foil === "on" ? "checked" : "" %>>
+            Only Foils
+        </label>
+
+
+        <fieldset>
+            <legend>Sort By</legend>
+
             <label>
-                <input type="radio" name="game" value="Magic" <%= filter.game === "Magic" ? "checked" : "" %>>
-                Magic
+                <input type="radio" name="sort" value="" <%= !filter.sort ? "checked" : "" %>>
+                Default
             </label>
+
+            <% inputFields.sortOptions.forEach((option) => { %>
+                <label>
+                    <input 
+                        type="radio" 
+                        name="sort" 
+                        value="<%= option.value %>"
+                        <%= filter.sort === option.value ? "checked" : "" %>
+                    > 
+                    <%= option.text %>
+                </label>
+            <% }) %>
         </fieldset>
 
         <button type="submit">Apply Filter</button>
+        <a href="/">
+            <button type="button">Clear Filter</button>
+        </a>
     </form>
     
 </aside>
