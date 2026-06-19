@@ -3,35 +3,29 @@
         <h2>Cards</h2>
         <%- include("../partials/filter") %>
 
-        <table id="iventory-search-results">
-            <tr>
-                <th>Card Preview</th>
-                <th>Name</th>
-                <th>Game</th>
-                <th>Condition</th>
-                <th>Foil</th>
-                <th>Quantity</th>
-                <th>Options</th>
-            </tr>
-            <% cards.forEach(card => { %>
-                <tr>
-                    <td><img src=<%= card.image %>></td>
-                    <td><%= card.name %></td>
-                    <td><%= card.game %></td>
-                    <td><%= card.condition %></td>
-                    <td><%= card.is_foil === true ? "Yes" : "No" %></td>
-                    <td><%= card.quantity %></td>
-                    <td>
+        <section id="card-results">
+            <% cards.forEach(card => {  %>
+                <div class="card">
+                    <img src="<%= card.image %>">
+
+                    <div class="card-details">
+                        <strong class="card-name"><%= card.name%></strong>
+                        <p><strong>Condition: </strong><%= card.condition %></p>
+                        <p><strong>Foli: </strong><%= card.is_foil ? "Yes" : "No" %></p>
+                        <p><strong>Quantity: </strong><%= card.quantity %></p>
+                    </div>
+                    
+                    <div class="card-options">
                         <form action="/<%= card.id %>/edit" method="GET">
                             <button type="submit">Edit</button>
                         </form>
                         <form action="/<%= card.id %>/delete" method="GET">
                             <button type="submit">Delete</button>
                         </form>
-                    </td>
-                </tr>
+                    </div>
+                </div>
             <% }) %>
-        </table>
+            </section>
     <% } else {%>
         <strong>No Cards Found</strong>
     <% } %>

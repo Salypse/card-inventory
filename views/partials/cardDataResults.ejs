@@ -1,0 +1,38 @@
+<section id = "card-data-table">
+  <% if (locals.error) { %>
+    <h2>Error</h2>
+    <p>Something went wrong while searching. Please try again.</p>
+
+  <% } else if (locals.cards && locals.cards.length >= 1) { %>
+    <h2>Search Results</h2>
+
+    <section id="card-results">
+      <% cards.forEach(card => { %>
+        <div class="card">
+          <img src="<%= card.image %>">
+          
+          <div class="card-details">
+            <strong class="card-name"><%= card.name %></strong>
+            <p><strong>Set: </strong><%= card.set %></p>
+            <p><strong>Type: </strong><%= card.type %></p>
+            <p><strong>Element: </strong><%= card.element %></p>
+            <p><strong>Rarity: </strong><%= card.rarity %></p>
+            <p><strong>Number: </strong><%= card.num %></p>
+          </div>
+
+          <div class="card-options">
+            <form action="/add/form" method="POST">
+              <input type="hidden" name="name" value="<%= card.name %>">
+              <input type="hidden" name="game" value="<%= card.game %>">
+              <input type="hidden" name="image" value="<%= card.image %>">
+              <button type="submit">Add To Inventory</button>
+            </form>
+          </div>
+        </div>
+      <% }) %>
+
+  <% } else if (locals.cards && locals.cards.length <= 0) { %>
+    <h2>No Results</h2>
+    <p>No cards matched your search. Try checking spelling or using a different name.</p>
+  <% } %>
+</section>
