@@ -7,21 +7,23 @@
             <% cards.forEach(card => {  %>
                 <div class="card">
                     <img src="<%= card.image %>">
-
-                    <div class="card-details">
-                        <strong class="card-name"><%= card.name%></strong>
-                        <p><strong>Condition: </strong><%= card.condition %></p>
-                        <p><strong>Foli: </strong><%= card.is_foil ? "Yes" : "No" %></p>
-                        <p><strong>Quantity: </strong><%= card.quantity %></p>
-                    </div>
                     
-                    <div class="card-options">
-                        <form action="/<%= card.id %>/edit" method="GET">
-                            <button type="submit">Edit</button>
-                        </form>
-                        <form action="/<%= card.id %>/delete" method="GET">
-                            <button type="submit">Delete</button>
-                        </form>
+                    <div class="card-content">
+                        <div class="card-details">
+                            <strong class="card-name"><%= card.name%></strong>
+                            <p><strong>Condition: </strong><%= card.condition %></p>
+                            <p><strong>Foli: </strong><%= card.is_foil ? "Yes" : "No" %></p>
+                            <p><strong>Quantity: </strong><%= card.quantity %></p>
+                        </div>
+                    
+                        <div class="card-options">
+                            <form action="/<%= card.id %>/edit" method="GET">
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form action="/<%= card.id %>/delete" method="GET">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             <% }) %>

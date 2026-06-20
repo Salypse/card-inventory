@@ -1,0 +1,111 @@
+#card-results {
+  width: 90%;
+  margin: 2rem auto;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.card {
+  padding: 1rem 0 0 0;
+  background-color: var(--white);
+  border-radius: 1rem;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  font-size: clamp(1.1rem, 4vw, 1.3rem);
+}
+
+.card img {
+  max-width: 225px;
+  width: 90%;
+  height: auto;
+}
+
+.card-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.card-name {
+  font-size: clamp(1.5rem, 5vw, 1.6rem);
+}
+
+.card-details {
+  width: 85%;
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-options {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  background-color: var(--purple);
+  margin-top: auto;
+  overflow: hidden;
+}
+
+.card-options form {
+  width: 100%;
+  margin: 0.2rem;
+}
+
+.card-options button {
+  width: 100%;
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  padding: 0.3rem;
+  color: white;
+  background-color: var(--purple);
+  border: none;
+}
+
+.card-options form:not(:first-of-type) button {
+  border-left: 0.2rem solid var(--gray);
+}
+
+@media (min-width: 1000px) {
+  #card-results {
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+  }
+
+  .card {
+    justify-content: center;
+    flex-direction: row;
+    padding: 0;
+  }
+
+  .card img {
+    padding: 0.5rem;
+  }
+
+  .card-content {
+    height: 100%;
+    padding: 1rem 1rem 0 0;
+  }
+
+  .card-details {
+    justify-content: space-between;
+  }
+
+  .card-options {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+}

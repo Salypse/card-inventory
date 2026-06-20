@@ -11,22 +11,24 @@
         <div class="card">
           <img src="<%= card.image %>">
           
-          <div class="card-details">
-            <strong class="card-name"><%= card.name %></strong>
-            <p><strong>Set: </strong><%= card.set %></p>
-            <p><strong>Type: </strong><%= card.type %></p>
-            <p><strong>Element: </strong><%= card.element %></p>
-            <p><strong>Rarity: </strong><%= card.rarity %></p>
-            <p><strong>Number: </strong><%= card.num %></p>
-          </div>
+          <div class="card-content">
+            <div class="card-details">
+              <strong class="card-name"><%= card.name %></strong>
+              <p><strong>Set: </strong><%= card.set %></p>
+              <p><strong>Type: </strong><%= card.type %></p>
+              <p><strong>Element: </strong><%= card.element %></p>
+              <p><strong>Rarity: </strong><%= card.rarity %></p>
+              <p><strong>Number: </strong><%= card.num %></p>
+            </div>
 
-          <div class="card-options">
-            <form action="/add/form" method="POST">
-              <input type="hidden" name="name" value="<%= card.name %>">
-              <input type="hidden" name="game" value="<%= card.game %>">
-              <input type="hidden" name="image" value="<%= card.image %>">
-              <button type="submit">Add To Inventory</button>
-            </form>
+            <div class="card-options">
+              <form action="/add/form" method="POST">
+                <input type="hidden" name="name" value="<%= card.name %>">
+                <input type="hidden" name="game" value="<%= card.game %>">
+                <input type="hidden" name="image" value="<%= card.image %>">
+                <button type="submit">Add To Inventory</button>
+              </form>
+            </div>
           </div>
         </div>
       <% }) %>
