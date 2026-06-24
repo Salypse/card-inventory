@@ -1,0 +1,36 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+
+  background-color: var(--white);
+  border: 0.3rem solid var(--purple);
+  border-radius: 1rem;
+  padding: 0.2rem;
+  margin: 0.5rem;
+
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-bar input {
+  outline: none;
+  background: transparent;
+  border: none;
+
+  flex: 1;
+  padding: 0.2rem;
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
+}
+
+.search-bar img {
+  max-width: 30px;
+  height: 100%;
+}
+
+.search-bar select {
+  width: 100%;
+  max-width: 150px;
+  font-size: 1rem;
+  border: 0.2rem solid var(--light-purple);
+}

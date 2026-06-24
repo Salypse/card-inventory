@@ -4,28 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/styles/search.css" />
     <link rel="stylesheet" href="/styles/cardResults.css" />
     <title>Add Inventory</title>
   </head>
   <body>
     <%- include("partials/navbar") %>
-    <h1>Add New Inventory</h1>
     <section>
-      <strong>Find a Card</strong>
-      <p>Search for a card to retreive its details.</p>
-      <form method="GET">
-        <label for="search-name">Card Name: </label>
-        <input type="text" id="search-name" name="searchName" required />
+      <h1>Add New Inventory</h1>
+      <form method="GET" class="search-bar">
+        <button type="submit">
+          <img src="/images/search.svg" />
+        </button>
 
-        <label for="search-game">Game: </label>
+        <input
+          type="text"
+          name="searchName"
+          placeholder="Search Card Here..."
+          required
+        />
+
         <select id="search-game" name="searchGame" required>
           <option value="" selected hidden default></option>
           <option value="lorcana">Lorcana</option>
           <option value="pokemon">Pokemon</option>
-          <option value="magic">Magic the Gathering</option>
+          <option value="magic">Magic</option>
         </select>
-
-        <button type="submit">Search</button>
       </form>
       <%- include("partials/cardDataResults") %>
     </section>
