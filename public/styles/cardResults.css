@@ -64,20 +64,28 @@
 
 .card-options form {
   width: 100%;
-  margin: 0.2rem;
 }
 
 .card-options button {
   width: 100%;
   font-size: clamp(1.25rem, 4vw, 1.5rem);
-  padding: 0.3rem;
+  padding: 0.6rem;
   color: white;
   background-color: var(--purple);
-  border: none;
+}
+
+.card-options button:hover,
+.card-options button:focus-visible {
+  background-color: var(--light-purple);
+}
+
+.card-options button:active {
+  background-color: var(--purple);
 }
 
 .card-options form:not(:first-of-type) button {
   border-left: 0.2rem solid var(--gray);
+  transform: translateY(-1px);
 }
 
 @media (min-width: 1000px) {
