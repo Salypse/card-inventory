@@ -1,7 +1,9 @@
 <section id = "card-data-table">
   <% if (locals.error) { %>
-    <h2>Error</h2>
-    <p>Something went wrong while searching. Please try again.</p>
+    <div class="helper-text">
+      <h2>Error</h2>
+      <p>Something went wrong while searching. Please try again.</p>
+    </div>
 
   <% } else if (locals.cards && locals.cards.length >= 1) { %>
     <h2>Search Results</h2>
@@ -34,7 +36,9 @@
       <% }) %>
 
   <% } else if (locals.cards && locals.cards.length <= 0) { %>
-    <h2>No Results</h2>
-    <p>No cards matched your search. Try checking spelling or using a different name.</p>
+    <div class="helper-text">
+      <h2>No Results</h2>
+      <p>No cards matched your search. Try checking spelling or using a different name.</p>
+    </div>
   <% } %>
 </section>

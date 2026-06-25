@@ -47,3 +47,7 @@ button {
   background: transparent;
   cursor: pointer;
 }
+
+h2 {
+  color: var(--white);
+}
