@@ -21,7 +21,7 @@ body {
 
 body section {
   width: 90%;
-  margin: auto;
+  margin: 1rem auto;
   text-align: center;
 }
 
@@ -46,6 +46,10 @@ button {
   border: none;
   background: transparent;
   cursor: pointer;
+}
+
+h1 {
+  text-align: center;
 }
 
 h2 {

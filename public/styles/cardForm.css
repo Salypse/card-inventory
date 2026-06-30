@@ -1,0 +1,113 @@
+.card-form {
+  background-color: var(--white);
+  border: 0.5rem solid var(--purple);
+  border-radius: 1rem;
+}
+
+.card-form img {
+  width: 80%;
+  max-width: 500px;
+  margin: 0.75rem auto;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-group,
+.card-form button {
+  font-size: clamp(1.35rem, 3.5vw, 1.5rem);
+  font-weight: bold;
+}
+
+.card-form form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0.8rem;
+  margin: 1rem;
+}
+
+.card-form form input,
+.card-form form select {
+  border: 0.2rem solid var(--light-purple);
+  padding: 0.2rem;
+  width: 100%;
+
+  font-size: clamp(1.2rem, 3vw, 1.3rem);
+}
+
+.card-form button {
+  background-color: var(--light-purple);
+  color: var(--white);
+  font-size: clamp(1.15rem, 2.5vw, 1.3rem);
+  border: 0.5rem solid var(--light-purple);
+
+  justify-self: center;
+  width: auto;
+
+  border-radius: 1rem;
+  padding: 0.4rem 0.5rem;
+}
+
+.card-form button:hover,
+.card-form button:focus-visible {
+  background-color: var(--white);
+  color: var(--purple);
+}
+
+.card-form button:active {
+  background-color: var(--light-purple);
+  color: var(--white);
+}
+
+#name-input {
+  grid-area: 1 / 1 / 2 / -1;
+}
+
+.card-form button {
+  grid-area: 4 / 1 / -1 / -1;
+}
+
+#quantity-input,
+#foil-input {
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  text-align: center;
+}
+
+#quantity-input input {
+  text-align: center;
+}
+
+#foil-input input {
+  margin: 0.5rem 0;
+  transform: scale(2.5);
+
+  outline: none;
+  accent-color: var(--light-purple);
+}
+
+@media (min-width: 1000px) {
+  .card-form {
+    display: flex;
+    width: 70%;
+  }
+
+  .card-form img {
+    width: 40%;
+    margin: 0.75rem;
+  }
+
+  .card-form form {
+    margin: 0.2rem;
+    gap: 0.5rem;
+
+    height: 50%;
+    align-self: center;
+  }
+}

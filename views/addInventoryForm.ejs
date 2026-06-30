@@ -3,51 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/styles/root.css">
+    <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/styles/cardForm.css" />
     <title>Add Iventory Form</title>
   </head>
   <body>
     <%- include("partials/navbar") %>
     <h1>Add Card To Inventory</h1>
-    <section>
+    <section class="card-form">
       <img src="<%= card.image%>" />
       <form action="/" method="POST">
         <input type="hidden" name="image" value="<%= card.image %>" />
 
-        <label for="cardName">Name: </label>
-        <input
-          name="cardName"
-          id="card-name"
-          value="<%= card.name %>"
-          readonly
-          required
-        />
+        <div class="input-group" id="name-input">
+          <label for="cardName">Name</label>
+          <input
+            name="cardName"
+            id="card-name"
+            value="<%= card.name %>"
+            readonly
+            required
+          />
+        </div>
 
-        <label for="cardGame">Game: </label>
-        <input
-          name="cardGame"
-          id="card-game"
-          value="<%= card.game %>"
-          readonly
-          required
-        />
+        <div class="input-group">
+          <label for="cardGame">Game</label>
+          <input
+            name="cardGame"
+            id="card-game"
+            value="<%= card.game %>"
+            readonly
+            required
+          /> 
+        </div class="input-group">
 
-        <label for="condition">Condition:</label>
-        <select name="condition" id="condition" required>
-          <option value="" disabled selected hidden></option>
-          <option value="Mint">Mint</option>
-          <option value="Near Mint">Near Mint</option>
-          <option value="Lightly Played">Lightly Played</option>
-          <option value="Moderately Played">Moderately Played</option>
-          <option value="Heavily Played">Heavily Played</option>
-          <option value="Damaged">Damaged</option>
-        </select>
+        <div class="input-group" id="condition-input">
+          <label for="condition">Condition</label>
+          <select name="condition" id="condition" required>
+            <option value="" disabled selected hidden></option>
+            <option value="Mint">Mint</option>
+            <option value="Near Mint">Near Mint</option>
+            <option value="Lightly Played">Lightly Played</option>
+            <option value="Moderately Played">Moderately Played</option>
+            <option value="Heavily Played">Heavily Played</option>
+            <option value="Damaged">Damaged</option>
+          </select>
+        </div>
 
-        <label for="isFoil">Foil: </label>
-        <input type="checkbox" name="isFoil" id="is-foil" />
+        <div class="input-group"  id="foil-input">
+          <label for="isFoil">Foil</label>
+          <input type="checkbox" name="isFoil" id="is-foil" />
+        </div>
 
-        <label for="quantity">Quantity: </label>
-        <input type="number" name="quantity" id="quantity" required/>
+        <div class="input-group" id="quantity-input">
+          <label for="quantity">Quantity</label>
+          <input type="number" name="quantity" id="quantity" required />
+        </div>
 
         <button type="submit">Submit</button>
       </form>
