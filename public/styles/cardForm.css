@@ -63,6 +63,29 @@
   color: var(--white);
 }
 
+#quantity-input .increment {
+  display: flex;
+  width: 70%;
+  min-width: 100px;
+}
+
+#quantity-input .increment-btn {
+  border-radius: 0;
+  border-width: 0.2rem;
+}
+
+#quantity-input .increment-btn:first-of-type {
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  border-right: none;
+}
+
+#quantity-input .increment-btn:last-of-type {
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-left: none;
+}
+
 #name-input {
   grid-area: 1 / 1 / 2 / -1;
 }

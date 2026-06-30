@@ -59,11 +59,16 @@
 
             <div class="input-group" id="quantity-input">
                 <label for="quantity">Quantity</label>
-                <input type="number" name="quantity" id="quantity" value="<%= card.quantity %>" required/>
+                <div class="increment">
+                    <button type="button" class="increment-btn" id="decrease">-</button>
+                    <input type="number" name="quantity" id="quantity" value="<%= card.quantity %>" required/>
+                    <button type="button" class="increment-btn" id="increase">+</button>
+                </div>
             </div>
 
             <button type="submit">Submit</button>
         </form>
     </section>
-</body>
+</body> 
 </html>
+<script src="/utils/quantity.js"></script>  
