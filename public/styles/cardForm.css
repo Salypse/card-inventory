@@ -4,7 +4,7 @@
   border-radius: 1rem;
 }
 
-.card-form img {
+.card-form-img {
   width: 80%;
   max-width: 500px;
   margin: 0.75rem auto;
@@ -98,7 +98,7 @@
     width: 70%;
   }
 
-  .card-form img {
+  .card-form-img {
     width: 40%;
     margin: 0.75rem;
   }
