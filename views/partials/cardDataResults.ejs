@@ -8,14 +8,14 @@
   <% } else if (locals.cards && locals.cards.length >= 1) { %>
     <h2>Search Results</h2>
 
-    <section id="card-results">
+    <section id="card-results" aria-label="Card results">
       <% cards.forEach(card => { %>
-        <div class="card">
-          <img src="<%= card.image %>">
+        <article class="card">
+          <img src="<%= card.image %>" alt="<%= card.name %>">
           
           <div class="card-content">
             <div class="card-details">
-              <strong class="card-name"><%= card.name %></strong>
+              <h3 class="card-name"><%= card.name %></h3>
               <p><strong>Set: </strong><%= card.set %></p>
               <p><strong>Type: </strong><%= card.type %></p>
               <p><strong>Element: </strong><%= card.element %></p>
@@ -28,11 +28,11 @@
                 <input type="hidden" name="name" value="<%= card.name %>">
                 <input type="hidden" name="game" value="<%= card.game %>">
                 <input type="hidden" name="image" value="<%= card.image %>">
-                <button type="submit">Add To Inventory</button>
+                <button type="submit" aria-label="Add <%= card.name %> to inventory">Add To Inventory</button>
               </form>
             </div>
           </div>
-        </div>
+        </article>
       <% }) %>
     </section>
 

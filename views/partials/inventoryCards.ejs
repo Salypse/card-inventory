@@ -1,5 +1,5 @@
 <section id="inventory-cards">
-    <button type="button" id="toggle-filter-on">
+    <button type="button" id="toggle-filter-on" class="toggle-btn" aria-label="open filter">
         <img src="/images/filter-icon-open.svg" class="toggle-img">
     </button>
     <% if (locals.cards.length >= 1) { %>
@@ -7,27 +7,27 @@
 
         <section id="card-results">
             <% cards.forEach(card => {  %>
-                <div class="card">
-                    <img src="<%= card.image %>">
+                <article class="card">
+                    <img src="<%= card.image %>" alt="<%= card.name %>">
                     
                     <div class="card-content">
                         <div class="card-details">
-                            <strong class="card-name"><%= card.name%></strong>
+                            <h3 class="card-name"><%= card.name%></h3>
                             <p><strong>Condition: </strong><%= card.condition %></p>
-                            <p><strong>Foli: </strong><%= card.is_foil ? "Yes" : "No" %></p>
+                            <p><strong>Foil: </strong><%= card.is_foil ? "Yes" : "No" %></p>
                             <p><strong>Quantity: </strong><%= card.quantity %></p>
                         </div>
                     
                         <div class="card-options">
                             <form action="/<%= card.id %>/edit" method="GET">
-                                <button type="submit">Edit</button>
+                                <button type="submit" aria-label="Edit <%= card.name %> Card">Edit</button>
                             </form>
                             <form action="/<%= card.id %>/delete" method="GET">
-                                <button type="submit">Delete</button>
+                                <button type="submit" aria-label="Delete <%= card.name %> Card">Delete</button>
                             </form>
                         </div>
                     </div>
-                </div>
+                </article>
             <% }) %>
             </section>
     <% } else {%>

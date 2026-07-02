@@ -112,6 +112,10 @@
     display: none;
   }
 
+  .toggle-btn {
+    display: none;
+  }
+
   #filter {
     display: flex;
     width: 25vw;

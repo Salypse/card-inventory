@@ -13,8 +13,8 @@
     <section>
       <h1>Add New Inventory</h1>
       <form method="GET" class="search-bar">
-        <button type="submit">
-          <img src="/images/search.svg" />
+        <button type="submit" aria-label="Search for card data">
+          <img src="/images/search.svg" alt="" />
         </button>
 
         <input
@@ -25,7 +25,7 @@
         />
 
         <select id="search-game" name="searchGame" required>
-          <option value="" selected hidden default></option>
+          <option value="" disabled selected></option>
           <option value="lorcana">Lorcana</option>
           <option value="pokemon">Pokemon</option>
           <option value="magic">Magic</option>

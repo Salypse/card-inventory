@@ -1,5 +1,5 @@
-<aside id="filter">
-    <button type="button" id="toggle-filter-off">
+<aside id="filter" aria-label="inventory filter">
+    <button type="button" id="toggle-filter-off" class="toggle-btn" aria-label="close filter">
         <img src="/images/filter-icon-close.svg" class="toggle-img">
     </button>
     <form action="/" method="GET">
@@ -65,7 +65,9 @@
 
         <div id="filter-btns">
             <button type="submit">Apply Filter</button>
-                <button type="button"><a href="/" tabindex="1">Clear Filter</a></button>
+            <button type="button">
+                <a href="/" tabindex="1">Clear Filter</a>
+            </button>
         </div>
     </form>
     

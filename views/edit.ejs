@@ -10,7 +10,7 @@
 <body>
     <%- include("partials/navbar") %>
     <h1>Edit Card Details</h1>
-    <strong class="info-text">Lines with <img src="/images/non-edit.svg" class="helper-img"> cannot be changed.</strong>
+    <strong class="info-text">Lines with <img src="/images/non-edit.svg" class="helper-img" alt=""> cannot be changed.</strong>
     <section class="card-form">
         <img src="<%= card.image %>" class="card-form-img">
         <form action="/<%= card.id %>/edit" method="POST" >
@@ -18,7 +18,7 @@
             <input type="hidden" name="id" value="<%= card.id %>" />
 
             <div class="input-group" id="name-input">
-                <label for="cardName">Name <img src="/images/non-edit.svg" class="helper-img"></label>
+                <label for="card-name">Name <img src="/images/non-edit.svg" class="helper-img"></label>
                 <input
                 name="cardName"
                 id="card-name"
@@ -29,7 +29,7 @@
             </div>
 
             <div class="input-group">
-                <label for="cardGame">Game <img src="/images/non-edit.svg" class="helper-img"></label>
+                <label for="card-game">Game <img src="/images/non-edit.svg" class="helper-img"></label>
                 <input
                 name="cardGame"
                 id="card-game"
@@ -53,7 +53,7 @@
             </div>
 
             <div class="input-group" id="foil-input">
-                <label for="isFoil">Foil</label>
+                <label for="is-foil">Foil</label>
                 <input type="checkbox" name="isFoil" id="is-foil" <%= card.is_foil ? "checked" : "" %>>
             </div>
 
@@ -66,7 +66,7 @@
                 </div>
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit">Save changes</button>
         </form>
     </section>
 </body> 

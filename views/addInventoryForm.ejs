@@ -10,14 +10,24 @@
   <body>
     <%- include("partials/navbar") %>
     <h1>Add Card To Inventory</h1>
-     <strong class="info-text">Lines with <img src="/images/non-edit.svg" class="helper-img"> cannot be changed.</strong>
+    <strong class="info-text">
+      Lines with <img src="/images/non-edit.svg" class="helper-img" /> cannot be
+      changed.
+    </strong>
+
     <section class="card-form">
-      <img src="<%= card.image%>" class="card-form-img"/>
+      <img
+        src="<%= card.image%>"
+        class="card-form-img"
+        alt="<%= card.name %>"
+      />
       <form action="/" method="POST">
         <input type="hidden" name="image" value="<%= card.image %>" />
 
         <div class="input-group" id="name-input">
-          <label for="cardName">Name <img src="/images/non-edit.svg" class="helper-img"></label>
+          <label for="card-name">
+            Name <img src="/images/non-edit.svg" class="helper-img" alt="" />
+          </label>
           <input
             name="cardName"
             id="card-name"
@@ -28,15 +38,17 @@
         </div>
 
         <div class="input-group">
-          <label for="cardGame">Game <img src="/images/non-edit.svg" class="helper-img"></label>
+          <label for="card-game"
+            >Game <img src="/images/non-edit.svg" class="helper-img"
+          /></label>
           <input
             name="cardGame"
             id="card-game"
             value="<%= card.game %>"
             readonly
             required
-          /> 
-        </div class="input-group">
+          />
+        </div>
 
         <div class="input-group" id="condition-input">
           <label for="condition">Condition</label>
@@ -51,23 +63,49 @@
           </select>
         </div>
 
-        <div class="input-group"  id="foil-input">
-          <label for="isFoil">Foil</label>
+        <div class="input-group" id="foil-input">
+          <label for="is-foil">Foil</label>
           <input type="checkbox" name="isFoil" id="is-foil" />
         </div>
 
-        <div class="input-group" id="quantity-input">
+        <div
+          class="input-group"
+          id="quantity-input"
+          aria-label="Quantity Controls"
+        >
           <label for="quantity">Quantity</label>
           <div class="increment">
-            <button type="button" class="increment-btn" id="decrease">-</button>
-            <input type="number" name="quantity" id="quantity" value="0" required/>
-            <button type="button" class="increment-btn" id="increase">+</button>
+            <button
+              type="button"
+              class="increment-btn"
+              id="decrease"
+              aria-label="Decrease card quantity"
+            >
+              -
+            </button>
+            <input
+              type="number"
+              name="quantity"
+              id="quantity"
+              value="0"
+              required
+            />
+            <button
+              type="button"
+              class="increment-btn"
+              id="increase"
+              aria-label="Increase card quantity"
+            >
+              +
+            </button>
           </div>
         </div>
 
-        <button type="submit">Submit</button>
+        <button type="submit" aria-label="Add new card to inventory">
+          Submit
+        </button>
       </form>
     </section>
   </body>
 </html>
-<script src="/utils/quantity.js"></script>  
+<script src="/utils/quantity.js"></script>
