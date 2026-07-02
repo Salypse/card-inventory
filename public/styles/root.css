@@ -75,3 +75,37 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+@font-face {
+  font-family: "Geologica";
+  src: url("../fonts/Geologica/static/Geologica-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Fjalia One";
+  src: url("../fonts/Fjalla_One/FjallaOne-Regular.ttf");
+}
+
+h1,
+a,
+legend {
+  font-family: "Geologica";
+}
+
+h2,
+h3,
+button {
+  font-family: "Fjalia One";
+}
+
+label,
+p,
+strong,
+input {
+  font-family: "Roboto Slab";
+}
