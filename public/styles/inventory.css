@@ -1,0 +1,11 @@
+@media (min-width: 1000px) {
+  #inventory {
+    width: 100%;
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto 1fr;
+    flex: 1;
+    align-items: center;
+  }
+}

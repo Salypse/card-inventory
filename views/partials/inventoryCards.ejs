@@ -1,7 +1,9 @@
-<section>
+<section id="inventory-cards">
+    <button type="button" id="toggle-filter-on">
+        <img src="/images/filter-icon-open.svg" class="toggle-img">
+    </button>
     <% if (locals.cards.length >= 1) { %>
         <h2>Cards</h2>
-        <%- include("../partials/filter") %>
 
         <section id="card-results">
             <% cards.forEach(card => {  %>

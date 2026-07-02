@@ -1,4 +1,7 @@
-<aside>
+<aside id="filter">
+    <button type="button" id="toggle-filter-off">
+        <img src="/images/filter-icon-close.svg" class="toggle-img">
+    </button>
     <form action="/" method="GET">
         <input type="hidden" name="searchName" value="<%- filter.searchName %>">
 
@@ -34,12 +37,6 @@
             <% }) %>
         </fieldset>
 
-        <label>
-            <input type="checkbox" name="foil" <%= filter.foil === "on" ? "checked" : "" %>>
-            Only Foils
-        </label>
-
-
         <fieldset>
             <legend>Sort By</legend>
 
@@ -61,10 +58,15 @@
             <% }) %>
         </fieldset>
 
-        <button type="submit">Apply Filter</button>
-        <a href="/">
-            <button type="button">Clear Filter</button>
-        </a>
+        <label>
+            <input type="checkbox" name="foil" <%= filter.foil === "on" ? "checked" : "" %>>
+            Only Foils
+        </label>
+
+        <div id="filter-btns">
+            <button type="submit">Apply Filter</button>
+                <button type="button"><a href="/" tabindex="1">Clear Filter</a></button>
+        </div>
     </form>
     
 </aside>

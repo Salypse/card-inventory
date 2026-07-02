@@ -4,26 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/styles/root.css" />
+    <link rel="stylesheet" href="/styles/inventory.css" />
     <link rel="stylesheet" href="/styles/search.css" />
     <link rel="stylesheet" href="/styles/cardResults.css" />
+    <link rel="stylesheet" href="/styles/filter.css" />
     <title>Card Shop Inventory</title>
   </head>
   <body>
     <%- include("partials/navbar") %>
     <section id="inventory">
-      <h1>Inventory</h1>
-      <form action="/" method="GET" class="single search-bar">
-        <button type="submit">
-          <img src="/images/search.svg" />
-        </button>
-        <input
-          type="text"
-          name="searchName"
-          placeholder="Search Card Here..."
-          required
-        />
-      </form>
-      <%- include("partials/inventoryCards") %>
+      <div>
+        <h1>Inventory</h1>
+        <form
+          action="/"
+          method="GET"
+          class="single search-bar"
+          id="inventory-search"
+        >
+          <button type="submit">
+            <img src="/images/search.svg" />
+          </button>
+          <input
+            type="text"
+            name="searchName"
+            placeholder="Search Card Here..."
+            required
+          />
+        </form>
+      </div>
+      <%- include("partials/filter.ejs") %>
+      <%-include("partials/inventoryCards") %>
     </section>
   </body>
 </html>
+<script src="/utils/filter.js"></script>

@@ -18,6 +18,9 @@ body {
 
   background-color: var(--gray);
   text-align: center;
+
+  display: flex;
+  flex-direction: column;
 }
 
 body section {
