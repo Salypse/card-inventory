@@ -22,8 +22,13 @@
                             <form action="/<%= card.id %>/edit" method="GET">
                                 <button type="submit" aria-label="Edit <%= card.name %> Card">Edit</button>
                             </form>
-                            <form action="/<%= card.id %>/delete" method="GET">
-                                <button type="submit" aria-label="Delete <%= card.name %> Card">Delete</button>
+                            <form>
+                                <button 
+                                    onclick="openPasswordCheck(`Delete`, `<%= card.id %>`, `<%= card.name %>`)" 
+                                    type="button" 
+                                    aria-label="Delete <%= card.name %> Card">
+                                    Delete
+                                </button>
                             </form>
                         </div>
                     </div>
@@ -40,3 +45,5 @@
         <a href="/add">Add New Card to Inventory</a>
     </div>
 </section>
+
+ <%-include("../partials/passwordCheck.ejs") %>

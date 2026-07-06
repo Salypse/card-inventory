@@ -4,6 +4,7 @@
   --gray: #696464;
   --purple: #4b0b69;
   --light-purple: #9733c5;
+  --light-red: #c81515;
 }
 
 * {
@@ -30,6 +31,7 @@ body section {
 }
 
 nav {
+  position: relative;
   background-color: var(--purple);
   padding: 1.3vh 1vw;
   color: white;
@@ -68,6 +70,39 @@ h2 {
 .helper-img {
   max-width: 15px;
   height: auto;
+}
+
+.helper-text {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: var(--white);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin: 1rem 0;
+}
+
+.helper-text p {
+  color: var(--purple);
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.helper-text a {
+  color: var(--purple);
+  text-decoration: underline;
+  outline: none;
+}
+
+.helper-text a:hover,
+.helper-text a:focus-visible {
+  color: var(--light-purple);
+}
+
+.helper-text a:active {
+  color: var(--purple);
 }
 
 input::-webkit-outer-spin-button,

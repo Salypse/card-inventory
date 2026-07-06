@@ -4,7 +4,8 @@
     margin: 0;
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: auto auto 1fr;
+    grid-template-rows: auto auto auto 1fr;
+    flex-direction: column;
     flex: 1;
     align-items: center;
   }

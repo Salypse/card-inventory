@@ -1,8 +1,7 @@
 const toggleFilterOnBtn = document.getElementById("toggle-filter-on");
 const toggleFilterOffBtn = document.getElementById("toggle-filter-off");
 
-const filter = document.getElementById("filter");
-const nav = document.querySelector("nav");
+const filter = document.getElementById("filter") || "";
 
 const inventory = document.getElementById("inventory-cards");
 const inventorySearch = document.getElementById("inventory-search");

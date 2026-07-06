@@ -5,23 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/styles/root.css">
     <link rel="stylesheet" href="/styles/cardForm.css">
+    <link rel="stylesheet" href="/styles/passwordCheck.css">
     <title>Edit</title>
 </head>
 <body>
     <%- include("partials/navbar") %>
     <h1>Edit Card Details</h1>
     <strong class="info-text">Lines with <img src="/images/non-edit.svg" class="helper-img" alt=""> cannot be changed.</strong>
+    <% if (locals.error && error.type === "password") { %>
+        <div class="helper-text">
+          <h2>Incorrect Password.</h2>
+          <p><%= error.text %></p>
+        </div>
+      <% }%>
     <section class="card-form">
         <img src="<%= card.image %>" class="card-form-img">
-        <form action="/<%= card.id %>/edit" method="POST" >
-            <input type="hidden" name="image" value="<%= card.image %>" />
-            <input type="hidden" name="id" value="<%= card.id %>" />
+        <form method="POST" id="edit-form" >
+            <input type="hidden" name="image" id="image" value="<%= card.image %>" />
+            <input type="hidden" name="cardId" id="cardId" value="<%= card.id %>" />
 
             <div class="input-group" id="name-input">
                 <label for="card-name">Name <img src="/images/non-edit.svg" class="helper-img"></label>
                 <input
                 name="cardName"
-                id="card-name"
+                id="name"
                 value="<%= card.name %>"
                 readonly
                 required
@@ -32,7 +39,7 @@
                 <label for="card-game">Game <img src="/images/non-edit.svg" class="helper-img"></label>
                 <input
                 name="cardGame"
-                id="card-game"
+                id="game"
                 value="<%= card.game %>"
                 readonly
                 required
@@ -66,9 +73,10 @@
                 </div>
             </div>
 
-            <button type="submit">Save changes</button>
+            <button onclick="openPasswordCheck(`Edit`, `<%= card.id %>`, `<%= card.name %>`)" type="button">Save changes</button>
         </form>
     </section>
 </body> 
 </html>
+<%-include("./partials/passwordCheck.ejs") %>
 <script src="/utils/quantity.js"></script>  

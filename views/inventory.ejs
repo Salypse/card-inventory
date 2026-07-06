@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="/styles/search.css" />
     <link rel="stylesheet" href="/styles/cardResults.css" />
     <link rel="stylesheet" href="/styles/filter.css" />
+    <link rel="stylesheet" href="/styles/passwordCheck.css">
     <title>Card Shop Inventory</title>
   </head>
   <body>
     <%- include("partials/navbar") %>
     <section id="inventory">
-      <div>
+      <div id="search-bar">
         <h1>Inventory</h1>
         <form
           action="/"
@@ -32,6 +33,12 @@
           />
         </form>
       </div>
+      <% if (locals.error && error.type === "password") { %>
+        <div class="helper-text">
+          <h2>Incorrect Password.</h2>
+          <p><%= error.text %></p>
+        </div>
+      <% }%>
       <%- include("partials/filter.ejs") %>
       <%-include("partials/inventoryCards") %>
     </section>

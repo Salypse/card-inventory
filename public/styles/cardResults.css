@@ -92,33 +92,6 @@
   transform: translateY(-1px);
 }
 
-.helper-text {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  color: var(--white);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-
-  margin-bottom: 1rem;
-}
-
-.helper-text a {
-  color: var(--purple);
-  text-decoration: underline;
-  outline: none;
-}
-
-.helper-text a:hover,
-.helper-text a:focus-visible {
-  color: var(--light-purple);
-}
-
-.helper-text a:active {
-  color: var(--purple);
-}
-
 @media (min-width: 1100px) {
   #card-results {
     grid-template-columns: repeat(auto-fill, minmax(425px, 1fr));
