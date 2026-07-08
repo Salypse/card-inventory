@@ -2,6 +2,13 @@ async function searchCards(name) {
   try {
     const response = await fetch(
       `https://api.scryfall.com/cards/search?q=name=${name}`,
+      {
+        // Scryfall requires identifying headers for API requests
+        headers: {
+          "User-Agent": "CardShopInventory/1.0",
+          Accept: "application/json",
+        },
+      },
     );
     const result = await response.json();
 
@@ -33,7 +40,10 @@ async function searchCards(name) {
           element: multifacedCardFront.colors,
           rarity: capitalizeRarity(card.rarity),
           num: card.collector_number,
-          image: multifacedCardFront.image_uris !== undefined ? multifacedCardFront.image_uris.normal : card.image_uris.normal,
+          image:
+            multifacedCardFront.image_uris !== undefined
+              ? multifacedCardFront.image_uris.normal
+              : card.image_uris.normal,
         });
       } else {
         cards.push({
